@@ -13,17 +13,7 @@ import MoveMouse from './Components/MoveMouse/MoveMouse';
 function App() {
   return (
     <div className="App">
-      {/* <Dislike />
-      <Like />
-      <Layout>
-        <Box>
-          <SearchBox />
-          <Category>
-            <ProductList />
-          </Category>
-        </Box>
-      </Layout> */}
-      <MoveMouse />
+      
     </div>
   );
 }
