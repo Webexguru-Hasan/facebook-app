@@ -5,10 +5,13 @@ import postStyle from './Post.module.css'
 
 function Post({post}) {
     const user = useContext(users)
-    console.log({post})
+    
     return (
         <>
-        {user?.loggedIn && (
+        {
+            user.loading ? "Loading..." : (
+                <>
+                {user?.loggedIn && (
             <div className={postStyle.Wrapper}>
                 <div className={postStyle.card}>
                     <div className={postStyle.card_banner}>
@@ -23,7 +26,9 @@ function Post({post}) {
                 </div>
             </div>
         )}
-
+                </>
+            )
+        }
             
         </>
     )

@@ -1,10 +1,18 @@
 import React from 'react'
 import { useContext } from 'react'
-import { users } from '../../../App'
+import { themeswitch, users } from '../../../App'
 import HeadarStyle from './Headar.module.css'
+import {BsFillMoonFill, BsFillSunFill} from 'react-icons/bs'
 
 function Headar() {
     const user = useContext(users)
+    const theme = useContext(themeswitch)
+    
+
+    function changeColor(color){
+        theme.settheme(color)
+    }
+    
     
     
     
@@ -29,7 +37,15 @@ function Headar() {
             </div>
 
             <div className={HeadarStyle.navBtn}>
-                {user.loggedIn ? <button type='button' onClick={() => user.setLoggedIn(false)}>Logout</button> : <button type='button' onClick={() => user.setLoggedIn(true)}>Login</button>}
+                {user.loggedIn ? 
+                <button type='button' onClick={() => user.setLoggedIn(false)}>Logout</button> : <button type='button' onClick={() => user.setLoggedIn(true)}>Login</button>}
+
+                {theme.theme === 'light' 
+                ? <button type='button' onClick={() => changeColor('dark')}><BsFillMoonFill /></button> 
+                :  <button type='button' onClick={() => changeColor('light')}><BsFillSunFill /></button> }
+
+                
+               
                 
                 
 
