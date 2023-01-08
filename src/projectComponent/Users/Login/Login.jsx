@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react'
-import { BsFillPatchCheckFill } from 'react-icons/bs'
-import { users } from '../../../App'
+import { users } from '../../Contexts/Contexts';
+// import { BsFillPatchCheckFill } from 'react-icons/bs'
+
 
 function Login() {
     const user = useContext(users)
@@ -10,15 +11,11 @@ function Login() {
         email : '',
         password : ''
     })
-
-    console.log(user.loading);
     
-
-  async function handleLogin (){
+    async function handleLogin (){
     try{
-        user.setLoading(true)
-        const res = await fetch('https://blogs-webiste-api.onrender.com/users/signin',
-        {
+        // user.setLoading(false)
+        const res = await fetch('https://blogs-webiste-api.onrender.com/users/signin',{
             method : 'POST',
             headers: {
                 "Content-Type": "application/json",
@@ -26,20 +23,19 @@ function Login() {
               body : JSON.stringify(login)
         },
         
-        )
-        const result = res.json()
+        );
+        const result = await res.json()
+        // user.setLoggedIn(true)
+        // user.setLoading(true)
+
+        localStorage.setItem('userInformation', JSON.stringify(result))
         
-        user.setLoggedIn(true)
-        user.setLoading(false)
     }
     catch(error) {
         console.error(error.message)
     }
+}
     
-
-    }
-   
-
     return (
         <div>
 
@@ -54,6 +50,8 @@ function Login() {
             })}
             />
             <button type='button' onClick={handleLogin}>Login</button>
+
+            
             
         </div>
     )

@@ -3,15 +3,16 @@ import { useEffect } from 'react'
 import Post from '../Post/Post.jsx'
 
 function Posts() {
-    const [posts, setpost] = React.useState([])
+    const [posts, setPosts] = React.useState([])
     
 
     useEffect(() => {
         fetch('https://blogs-webiste-api.onrender.com/post')
         .then((res) => res.json())
-        .then((data) => setpost(data))
+        .then((data) => setPosts(data))
         .catch( (error) => console.error(error.message))
     }, [])
+
     return (
         <div>
             {posts.map((post) => (

@@ -1,49 +1,31 @@
 
-import { useState } from 'react';
-import { createContext } from 'react';
 import './App.css';
+import UserContext from './projectComponent/Contexts/Usercontext';
+import ThemeContext from './projectComponent/Contexts/ThemeContext';
 import Layout from './projectComponent/Layout/Layout';
 import Posts from './projectComponent/Posts/Posts';
 import Login from './projectComponent/Users/Login/Login'
-
-
-
-
- export const users = createContext()
- export const themeswitch = createContext()
-
+import Register from './projectComponent/Users/Register/Register';
 
 function App() {
-  const [loggedIn, setLoggedIn] = useState(false)
-  const [loading, setLoading] = useState(false)
-  const [theme, settheme] = useState('light')
-
-  const userInfo = {
-    loggedIn : loggedIn,
-    setLoggedIn : setLoggedIn,
-    loading: loading,
-    setLoading: setLoading
-  }
-  
-  const themeInfo = {
-    theme : theme,
-    settheme : settheme
-  }
   
   return (
-    <div className={theme === 'light' ? 'lighttheme' : 'darktheme'}>
-    <users.Provider value={userInfo}>
-      <themeswitch.Provider value={themeInfo}>
+    <div>
       
-    <Layout>
-    <Login />
+      <UserContext>
+        <ThemeContext>
+        
+          <Layout>
+          <Login /><br />
+          <Register />
+          <Posts />
+        </Layout>
       
-      <Posts />
+      </ThemeContext>
+      </UserContext>
+        
+    
       
-    </Layout>
-    </themeswitch.Provider>
-
-    </users.Provider>
     </div>
   )
 }

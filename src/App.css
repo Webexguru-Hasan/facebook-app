@@ -8,10 +8,18 @@
   background-color: black;
   color: white;
 }
+.redtheme {
+  background-color: red;
+  color: white;
+}
+
 
 .lighttheme  a {
   color: black;
 }
 .darktheme  a {
   color: white;
+}
+.redtheme a {
+  color : white,
 }

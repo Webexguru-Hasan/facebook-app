@@ -1,17 +1,22 @@
 import React from 'react'
 import { useContext } from 'react'
-import { users } from '../../App'
+import { users } from '../Contexts/Contexts'
 import postStyle from './Post.module.css'
 
 function Post({post}) {
     const user = useContext(users)
+
+    const {parseUser : userInfo} = user
+
+    console.log(userInfo)
+
     
     return (
         <>
         {
-            user.loading ? "Loading..." : (
+            user.loading === false ? 'loading____' : (
                 <>
-                {user?.loggedIn && (
+                {userInfo && (
             <div className={postStyle.Wrapper}>
                 <div className={postStyle.card}>
                     <div className={postStyle.card_banner}>
@@ -28,6 +33,8 @@ function Post({post}) {
         )}
                 </>
             )
+               
+            
         }
             
         </>
