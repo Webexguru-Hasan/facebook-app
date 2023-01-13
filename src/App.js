@@ -1,32 +1,41 @@
 
+import React from 'react';
 import './App.css';
-import UserContext from './projectComponent/Contexts/Usercontext';
-import ThemeContext from './projectComponent/Contexts/ThemeContext';
-import Layout from './projectComponent/Layout/Layout';
-import Posts from './projectComponent/Posts/Posts';
-import Login from './projectComponent/Users/Login/Login'
-import Register from './projectComponent/Users/Register/Register';
+import Button from './Button/Button';
+import Useref from './UseRef/Useref';
+
+import WellComponent from './WellComponents/WellComponent';
 
 function App() {
   
+  function handleClick(){
+    console.log('handleClick')
+  }
+  function handleContact(){
+    console.log('handleContact')
+  }
+  function handleLogin(){
+    console.log('handleLogin');
+  }
   return (
-    <div>
-      
-      <UserContext>
-        <ThemeContext>
-        
-          <Layout>
-          <Login /><br />
-          <Register />
-          <Posts />
-        </Layout>
-      
-      </ThemeContext>
-      </UserContext>
-        
-    
-      
-    </div>
+    <>
+    <WellComponent tpye='button' placeholder='I am creating well component' onClick={handleClick} />
+    <br/>
+    <hr/>
+    <Button onClick={handleClick}>
+      click
+    </Button>
+    <Button onClick={handleContact}>
+      contact
+    </Button>
+    <Button onClick={handleLogin}>
+      login
+    </Button>
+    <br/>
+    <hr/>
+    <Useref />
+
+    </>
   )
 }
 
