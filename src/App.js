@@ -1,41 +1,33 @@
 
 import React from 'react';
 import './App.css';
-import Button from './Button/Button';
-import Useref from './UseRef/Useref';
+import ShowCount from './UseCallback_components/ShowCount/ShowCount';
+import Title from './UseCallback_components/Title/Title';
+import UseCallback from './UseCallback_components/UseCallback';
+import Clock from './UseRef/Clock/Clock';
+import ScroolImg from './UseRef/ScroolImg/ScroolImg';
 
-import WellComponent from './WellComponents/WellComponent';
+
+import StopWatch from './UseRef/StopWatch';
+
 
 function App() {
-  
-  function handleClick(){
-    console.log('handleClick')
-  }
-  function handleContact(){
-    console.log('handleContact')
-  }
-  function handleLogin(){
-    console.log('handleLogin');
-  }
-  return (
-    <>
-    <WellComponent tpye='button' placeholder='I am creating well component' onClick={handleClick} />
-    <br/>
-    <hr/>
-    <Button onClick={handleClick}>
-      click
-    </Button>
-    <Button onClick={handleContact}>
-      contact
-    </Button>
-    <Button onClick={handleLogin}>
-      login
-    </Button>
-    <br/>
-    <hr/>
-    <Useref />
 
-    </>
+  
+
+
+  return (
+    <UseCallback>
+      <ShowCount title='title' />
+      <Title />
+      <StopWatch/>
+      <Clock />
+      <hr />
+      <ScroolImg />
+      
+      
+      
+    </UseCallback>
   )
 }
 
