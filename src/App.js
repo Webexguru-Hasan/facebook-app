@@ -1,33 +1,28 @@
 
 import React from 'react';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
-import ShowCount from './UseCallback_components/ShowCount/ShowCount';
-import Title from './UseCallback_components/Title/Title';
-import UseCallback from './UseCallback_components/UseCallback';
-import Clock from './UseRef/Clock/Clock';
-import ScroolImg from './UseRef/ScroolImg/ScroolImg';
+import Blog from './Pages/Blog';
+import Contact from './Pages/Contact';
+import Home from './Pages/Home';
+import Layout from './Pages/Layout';
 
 
-import StopWatch from './UseRef/StopWatch';
 
 
 function App() {
-
   
-
-
   return (
-    <UseCallback>
-      <ShowCount title='title' />
-      <Title />
-      <StopWatch/>
-      <Clock />
-      <hr />
-      <ScroolImg />
+    <BrowserRouter>
+    <Routes>
+      <Route path='/' element={<Layout />} />
+        <Route path='/home' element={<Home />} />
+        <Route path='/blogs' element={<Blog />} />
+        <Route path='/contact' element={<Contact />} />
+
       
-      
-      
-    </UseCallback>
+    </Routes>
+    </BrowserRouter>
   )
 }
 
