@@ -12,27 +12,5 @@ code {
     monospace;
 } */
 
-@font-face {
-  font-family: lora-500;
-  src: url(../src/fonts/lora/Lora-Medium.ttf);
-}
-@font-face {
-  font-family: inter-600;
-  src: url(../src/fonts/inter/Inter-SemiBold.ttf);
-}
-@font-face {
-  font-family: inter-500;
-  src: url(../src/fonts/inter/Inter-Medium.ttf);
-}
-@font-face {
-  font-family: inter-400;
-  src: url(../src/fonts/inter/Inter-Regular.ttf);
-}
-@font-face {
-  font-family: poppins-600;
-  src: url(../src/fonts/poppins/Poppins-SemiBold.ttf);
-}
-@font-face {
-  font-family: poppins-400;
-  src: url(../src/fonts/poppins/Poppins-Regular.ttf);
-}
+
+
