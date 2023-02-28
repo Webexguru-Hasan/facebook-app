@@ -1,32 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react'
+import useFetch from './Hooks/useFetch'
 
-const FilterBtn = () => {
-    const buttons = [
-        {
-            id: 1,
-            title: "All"
-        },
-        {
-            id: 2,
-            title: "Mens Cloth"
-        },
-        {
-            id: 3,
-            title: "Womens Cloth"
-        },
-        {
-            id: 4,
-            title: "Womens Ring"
-        },
-        {
-            id: 5,
-            title: "Accessories"
-        },
-    ]
+const FilterBtn = ({setFilteredProduct, filteredProduct}) => { 
+
+    const filteredCategory = (category) => filteredProduct.filter((product) => product.category === category)   
+    
+    console.log(filteredCategory("men's clothing"));
+
     return (
         <>
-        <div>
-            <div className='container'>
+    <div>
+        <div className='container'>
             <div className='row'>
                 <div className='col-12 text-center pt-5'>
                     <h1 className='fs-2 fw-semibold'>Latest Products</h1>
@@ -34,20 +18,25 @@ const FilterBtn = () => {
             </div>
             <div className='row'>
                 <div className='col-12 d-flex justify-center py-5'>
-                {buttons.map((button) => (
-                <div id={button.id}>
-                <button className='btn btn-dark mx-2'>{button.title}</button>
-                </div>
-            )
-                
-            )}
-
+                    <div>
+                        <button className='btn btn-dark mx-2' onClick={() => setFilteredProduct(datas)}>All</button>
+                    </div>
+                    <div>
+                        <button className='btn btn-dark mx-2' onClick={() => filteredCategory("men's clothing")}>men's clothing</button>
+                    </div>
+                    <div>
+                        <button className='btn btn-dark mx-2' onClick={() => filteredCategory("women's clothing")}>women's clothing</button>
+                    </div>
+                    <div>
+                        <button className='btn btn-dark mx-2' onClick={() => filteredCategory("jewelery")}>jewelery</button>
+                    </div>
+                    <div>
+                        <button className='btn btn-dark mx-2' onClick={() => filteredCategory("electronics")}>Electronic</button>
+                    </div>
                 </div>
             </div>
-        
-            </div>
-           
         </div>
+    </div>
             
         </>
     )

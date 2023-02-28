@@ -26,15 +26,19 @@ const ProductData = () => {
             }
         }
         getData()
+        
+        }, [])
 
-    }, [])
+        
+    
     
     return (
         <>
         <div className='container'>
+        
             
             <div className='row justify-content-center'>
-                 {loading ? <ShowProduct dats={data} /> : <Loading /> }
+                 {loading ? <ShowProduct datas={data} /> : <Loading /> }
                  
             </div>
         </div>
