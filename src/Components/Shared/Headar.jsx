@@ -44,7 +44,8 @@ const Headar = () => {
                 <div className='d-flex justify-content-center align-items-center'>
                     <Link to='/login' className={navbar.login}>Login</Link>
                     <Link to='/register' className={navbar.login}>register</Link>
-                    <BsFillCartCheckFill />
+                
+                    <Link to='/cart'><BsFillCartCheckFill /></Link> 
                 </div>
             </div>
         </nav>

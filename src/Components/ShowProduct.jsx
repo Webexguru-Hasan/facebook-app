@@ -1,23 +1,50 @@
 import React from 'react'
 import { useState } from 'react'
-import FilterBtn from './FilterBtn'
+
 
 
 
 const ShowProduct = ({datas}) => {
-    const [filteredProduct, setFilteredProduct] = useState(datas)
-
+    const [filterProduct, setFilterProduct] = useState(datas)
     
+    const filterCategory = (cat) => {
+        const updateList = datas.filter(({category}) => category === cat);
+        setFilterProduct(updateList)
+    }
     
-
-
-  
     return (
        
              <>
-             <FilterBtn setFilteredProduct={setFilteredProduct} filteredProduct={filteredProduct}/>
+             
 
-             {datas.map((product, idx) => {
+             <div className='container'>
+            <div className='row'>
+                <div className='col-12 text-center pt-5'>
+                    <h1 className='fs-2 fw-semibold'>Latest Products</h1>
+                </div>
+            </div>
+            <div className='row'>
+                <div className='col-12 d-flex justify-center py-5'>
+                    <div>
+                        <button className='btn btn-dark mx-2' onClick={() => setFilterProduct(datas)}>All</button>
+                    </div>
+                    <div>
+                        <button className='btn btn-dark mx-2' onClick={() => filterCategory("men's clothing")}>men's clothing</button>
+                    </div>
+                    <div>
+                        <button className='btn btn-dark mx-2' onClick={() => filterCategory("women's clothing")}>women's clothing</button>
+                    </div>
+                    <div>
+                        <button className='btn btn-dark mx-2' onClick={() => filterCategory("jewelery")}>jewelery</button>
+                    </div>
+                    <div>
+                        <button className='btn btn-dark mx-2' onClick={() => filterCategory("electronics")}>Electronic</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+             {filterProduct.map((product, idx) => {
                         return (
                             <>
                             <div className='col-lg-3 my-4'>
